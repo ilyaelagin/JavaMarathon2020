@@ -9,7 +9,8 @@ public class Task1 {
             String line = scanner.nextLine().trim();
             if (line.matches("[а-яА-Яa-zA-z]+")) {
                 String firstChar = line.substring(0, 1).toUpperCase(); // Делаем первую букву заглавной, на случай, если была введена прописная
-                line = firstChar + line.substring(1, line.length());
+                String otherChars = line.substring(1,line.length()).toLowerCase();
+                line = firstChar + otherChars;
                 if ("Stop".equals(line)) {
                     break;
                 }
