@@ -10,6 +10,9 @@ public class Task1 {
             if (line.matches("[а-яА-Яa-zA-z]+")) {
                 String firstChar = line.substring(0, 1).toUpperCase(); // Делаем первую букву заглавной, на случай, если была введена прописная
                 line = firstChar + line.substring(1, line.length());
+                if ("Stop".equals(line)) {
+                    break;
+                }
                 switch (line) {
                     case "Москва":
                     case "Владивосток":
@@ -31,13 +34,8 @@ public class Task1 {
                     case "Кельн":
                         System.out.println("Германия");
                         break;
-                    case "Stop":
-                        break;
                     default:
                         System.out.println("Неизвестная страна");
-                }
-                if ("Stop".equals(line)) {
-                    break;
                 }
             } else {
                 System.out.println("Введены недопустимые символы");
