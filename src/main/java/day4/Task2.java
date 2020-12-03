@@ -24,19 +24,14 @@ public class Task2 {
         System.out.println("Наименьший элемент массива: " + min);
 
         int elementsEndZero = 0;
-        for (int element : arr) {
-            if(element %10 == 0) {
-                elementsEndZero++;
-            }
-        }
-        System.out.println("Количество элементов массива, оканчивающихся на 0: " + elementsEndZero);
-
         int sumElementsEndingZero = 0;
         for (int element : arr) {
             if(element %10 == 0) {
+                elementsEndZero++;
                 sumElementsEndingZero += element;
             }
         }
+        System.out.println("Количество элементов массива, оканчивающихся на 0: " + elementsEndZero);
         System.out.println("Сумма элементов массива, оканчивающихся на 0: " + sumElementsEndingZero);
     }
 }

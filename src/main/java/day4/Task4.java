@@ -10,15 +10,16 @@ public class Task4 {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(10_000);
         }
-
-        int temp;
         int sum = 0;
         int idx = 0;
-        for (int i = 1; i < arr.length - 1 ; i++) {
-            temp = arr[i - 1] + arr[i] + arr[i + 1];
-            if (temp >= sum) {
+        for (int i = 0; i < arr.length - 2; i++) {
+            int temp = 0;
+            for (int j = i; j < i + 3; j++) {
+                temp += arr[j];
+            }
+            if (temp > sum) {
                 sum = temp;
-                idx = i - 1;
+                idx = i;
             }
         }
         System.out.println(sum);

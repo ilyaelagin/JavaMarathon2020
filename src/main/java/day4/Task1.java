@@ -36,14 +36,17 @@ public class Task1 {
             for (int element : arr) {
                 if (element % 2 == 0) {
                     evenNumbers++;
-                } else if (element % 2 != 0) {
+                } else {
                     oddNumbers++;
                 }
             }
             System.out.println("Количество четных чисел: " + evenNumbers);
             System.out.println("Количество нечетных чисел: " + oddNumbers);
 
-            int sum = Arrays.stream(arr).sum();
+            int sum = 0;
+            for(int element : arr) {
+                sum += element;
+            }
             System.out.println("Сумма всех элементов массива: " + sum);
 
         } catch (InputMismatchException e) {

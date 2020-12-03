@@ -4,28 +4,22 @@ import java.util.Random;
 
 public class Task3 {
     public static void main(String[] args) {
-        int[][] arr1 = new int[12][8];
+        int[][] arr = new int[12][8];
         Random random = new Random();
-        for (int i = 0; i < arr1.length; i++) {
-            for (int j = 0; j < arr1[i].length; j++) {
-                arr1[i][j] = random.nextInt(50);
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = random.nextInt(50);
             }
         }
-
-        int[] arr2 = new int[arr1.length];
-        for (int i = 0; i < arr1.length; i++) {
-            int sum = 0;
-            for (int j = 0; j < arr1[i].length; j++) {
-                sum += arr1[i][j];
-            }
-            arr2[i] = sum;
-        }
-
-        int max = arr2[0];
+        int sum1 = 0;
         int idx = 0;
-        for (int i = 0; i < arr2.length; i++) {
-            if (arr2[i] >= max) {
-                max = arr2[i];
+        for(int i = 0; i <arr.length; i++) {
+            int sum2 = 0;
+            for(int j = 0; j < arr[i].length; j++) {
+                sum2 += arr[i][j];
+            }
+            if(sum2 >= sum1) {
+                sum1 = sum2;
                 idx = i;
             }
         }
