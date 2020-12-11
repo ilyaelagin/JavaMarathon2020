@@ -1,4 +1,6 @@
-package day11.task2;
+package day11.task2.model;
+
+import day11.task2.interfaces.PhysAttack;
 
 public abstract class Hero implements PhysAttack {
     public static final int MAX_HEALTH = 100;
@@ -42,10 +44,11 @@ public abstract class Hero implements PhysAttack {
 
     @Override
     public void physicalAttack(Hero hero) {
-        if (hero.getHealth() - (physAtt - physAtt * hero.physDef / 100) <= MIN_HEALTH) {
+        int checkHeroHealth = hero.getHealth() - (physAtt - physAtt * hero.physDef / 100);
+        if (checkHeroHealth < MIN_HEALTH) {
             hero.setHealth(MIN_HEALTH);
         } else {
-            hero.setHealth(hero.getHealth() - (physAtt - physAtt * hero.physDef / 100));
+            hero.setHealth(checkHeroHealth);
         }
     }
 }

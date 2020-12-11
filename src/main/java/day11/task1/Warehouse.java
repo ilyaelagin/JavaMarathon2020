@@ -12,12 +12,12 @@ public class Warehouse {
         return countDeliveredOrders;
     }
 
-    public void setCountPickedOrders(int countPickedOrders) {
-        this.countPickedOrders += countPickedOrders;
+    public void incrementPickedOrders() {
+        countPickedOrders++;
     }
 
-    public void setCountDeliveredOrders(int countDeliveredOrders) {
-        this.countDeliveredOrders += countDeliveredOrders;
+    public void incrementDeliveredOrders() {
+        countDeliveredOrders++;
     }
 
     @Override

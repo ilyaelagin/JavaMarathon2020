@@ -1,4 +1,6 @@
-package day11.task2;
+package day11.task2.model;
+
+import day11.task2.interfaces.MagicAttack;
 
 public class Magician extends Hero implements MagicAttack {
     private int magicAtt;
@@ -20,10 +22,11 @@ public class Magician extends Hero implements MagicAttack {
 
     @Override
     public void magicalAttack(Hero hero) {
-        if (hero.getHealth() - (magicAtt - magicAtt * hero.getMagicDef() / 100) <= MIN_HEALTH) {
+        int checkHeroHealth = hero.getHealth() - (magicAtt - magicAtt * hero.getMagicDef() / 100);
+        if (checkHeroHealth < MIN_HEALTH) {
             hero.setHealth(MIN_HEALTH);
         } else {
-            hero.setHealth(hero.getHealth() - (magicAtt - magicAtt * hero.getMagicDef() / 100));
+            hero.setHealth(checkHeroHealth);
         }
     }
 }

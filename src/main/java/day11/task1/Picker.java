@@ -4,6 +4,7 @@ public class Picker implements Worker {
     private int salary;
     private boolean isPayed;
     private Warehouse warehouse;
+    private static final int TASK_SALARY = 80;
 
     public Picker(Warehouse warehouse) {
         this.warehouse = warehouse;
@@ -23,8 +24,8 @@ public class Picker implements Worker {
 
     @Override
     public void doWork() {
-        salary += 80;
-        warehouse.setCountPickedOrders(1);
+        salary += TASK_SALARY;
+        warehouse.incrementPickedOrders();
     }
 
     @Override

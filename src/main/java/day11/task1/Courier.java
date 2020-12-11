@@ -4,6 +4,7 @@ public class Courier implements Worker {
     private int salary;
     private boolean isPayed;
     private Warehouse warehouse;
+    private static final int TASK_SALARY = 100;
 
     public Courier(Warehouse warehouse) {
         this.warehouse = warehouse;
@@ -11,10 +12,6 @@ public class Courier implements Worker {
 
     public int getSalary() {
         return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
     }
 
     @Override
@@ -27,22 +24,24 @@ public class Courier implements Worker {
 
     @Override
     public void doWork() {
-        salary += 100;
-        warehouse.setCountDeliveredOrders(1);
+        salary += TASK_SALARY;
+        warehouse.incrementDeliveredOrders();
     }
 
+    // Более лаконичное написание метода bonus()
     @Override
     public void bonus() {
-        if(warehouse.getCountDeliveredOrders() >= 10000) {
-            if(isPayed == false) {
-                salary += 50000;
-                isPayed = true;
-                System.out.println("Доставлено 10000 заказов. Курьеру выплачен бонус: 50000");
-            } else {
-                System.out.println("Бонус уже был выплачен");
-            }
-        } else {
+        if (warehouse.getCountDeliveredOrders() < 10000) {
             System.out.println("Бонус пока не доступен");
+            return;
         }
+        if (isPayed) {
+            System.out.println("Бонус уже был выплачен");
+            return;
+        }
+        salary += 50000;
+        isPayed = true;
+        System.out.println("Доставлено 10000 заказов. Курьеру выплачен бонус: 50000");
     }
+
 }
