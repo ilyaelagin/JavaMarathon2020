@@ -1,11 +1,10 @@
 package day11.task2;
 
-public abstract class Hero implements PhysAttack, MagicAttack {
-    public final int maxHealth = 100;
-    public final int minHealth = 0;
+public abstract class Hero implements PhysAttack {
+    public static final int MAX_HEALTH = 100;
+    public static final int MIN_HEALTH = 0;
     private int health;
     private int physAtt;
-    private int magicAtt;
     private int physDef;
     private int magicDef;
 
@@ -25,14 +24,6 @@ public abstract class Hero implements PhysAttack, MagicAttack {
         this.physAtt = physAtt;
     }
 
-    public int getMagicAtt() {
-        return magicAtt;
-    }
-
-    public void setMagicAtt(int magicAtt) {
-        this.magicAtt = magicAtt;
-    }
-
     public int getPhysDef() {
         return physDef;
     }
@@ -50,18 +41,9 @@ public abstract class Hero implements PhysAttack, MagicAttack {
     }
 
     @Override
-    public void magicalAttack(Hero hero) {
-        if (hero.getHealth() - (magicAtt - magicAtt * hero.magicDef / 100) <= minHealth) {
-            hero.setHealth(minHealth);
-        } else {
-            hero.setHealth(hero.getHealth() - (magicAtt - magicAtt * hero.magicDef / 100));
-        }
-    }
-
-    @Override
     public void physicalAttack(Hero hero) {
-        if (hero.getHealth() - (physAtt - physAtt * hero.physDef / 100) <= minHealth) {
-            hero.setHealth(minHealth);
+        if (hero.getHealth() - (physAtt - physAtt * hero.physDef / 100) <= MIN_HEALTH) {
+            hero.setHealth(MIN_HEALTH);
         } else {
             hero.setHealth(hero.getHealth() - (physAtt - physAtt * hero.physDef / 100));
         }
