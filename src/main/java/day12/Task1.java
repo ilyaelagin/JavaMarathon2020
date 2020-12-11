@@ -13,7 +13,7 @@ public class Task1 {
         list.add("Bmw");
         System.out.println(list);
 
-        list.add(3,"Kia");
+        list.add(3, "Kia");
         list.remove(0);
         System.out.println(list);
     }
