@@ -3,7 +3,6 @@ package day14;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task1 {
@@ -19,12 +18,10 @@ public class Task1 {
             String line = scanner.nextLine();
             String[] numbersString = line.split(" ");
             if (numbersString.length == 10) {
-                int[] numbers = new int[10];
-                int count = 0;
+                int sum = 0;
                 for (String number : numbersString) {
-                    numbers[count++] = Integer.parseInt(number);
+                    sum += Integer.parseInt(number);
                 }
-                int sum = Arrays.stream(numbers).sum();
                 System.out.println(sum);
             } else {
                 throw new IOException();
