@@ -18,12 +18,13 @@ public class Task1 {
                 String[] shoeParameters = line.split(";");
                 int quantity = Integer.parseInt(shoeParameters[2]);
                 if (quantity == 0) {
-                    printWriter.println(line);
+                   String line2 = line.replace(";", ",");
+                    printWriter.println(line2);
                 }
             }
             System.out.println("Файл с отсутствующей на складе продукцией сформирован");
         } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден");
+            System.out.println("Message of Exception: " + e.getMessage());
         }
     }
 }
