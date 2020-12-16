@@ -16,11 +16,11 @@ public class Task1 {
         try (Scanner scanner = new Scanner(file)) {
             String line = scanner.nextLine();
             String[] numbersString = line.split(" ");
-            double sum = 0;
+            int sum = 0;
             for (String number : numbersString) {
-                sum += Double.parseDouble(number);
+                sum += Integer.parseInt(number);
             }
-            double average =  sum / numbersString.length;
+            double average = (double) sum / numbersString.length;
             System.out.print(average + " --> " + new DecimalFormat(".000").format(average));
 
         } catch (FileNotFoundException | NumberFormatException e) {
