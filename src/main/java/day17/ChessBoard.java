@@ -1,16 +1,16 @@
 package day17;
 
 public class ChessBoard {
-    private ChessPiece[][] chessPieces;
+    private ChessPiece[][] board;
 
     public ChessBoard(ChessPiece[][] chessPieces) {
-        this.chessPieces = chessPieces;
+        this.board = chessPieces;
     }
 
     public void print() {
-        for(int i = 0; i< chessPieces.length; i++) {
-            for(int j = 0; j< chessPieces[i].length; j++) {
-                System.out.print(chessPieces[i][j].getSymbol());
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                System.out.print(board[i][j].getSymbol());
             }
             System.out.println();
         }
